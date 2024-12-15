@@ -2,7 +2,7 @@
     <div v-if="isModalOpen" class="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
         <div class="relative bg-white rounded-lg p-6 w-full sm:w-3/4 md:w-1/2 lg:w-1/3">
             <button class="absolute right-10 top-4  text-gray-800 hover:text-gray-600" @click="closeModal">X</button>
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Employee Details</h2>
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Department Details</h2>
 
             <form @submit.prevent="submit" class="space-y-4">
                 <!--Department Name -->

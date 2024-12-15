@@ -53,8 +53,11 @@
                 <p class="text-sm text-gray-600"><strong>Phone:</strong> {{ employee.phone }}</p>
                 <p class="text-sm text-gray-600"><strong>Hire Date:</strong> {{ employee.hire_date }}</p>
                 <p class="text-sm text-gray-600"><strong>Salary:</strong> ${{ employee.salary }}</p>
+                <p v-if="employee.department && employee.department !== 'N/A'" class="text-sm text-gray-600">
+                    <strong>Department:</strong> {{ employee.department }}
+                </p>
+                <p v-else class="text-sm text-red-600">No Department Assigned</p>
 
-                <!-- Edit Icon -->
                 <span 
                     class="material-icons mt-5 mr-2 text-[20px] text-blue-500 cursor-pointer hover:text-[25px] transition-all duration-200" 
                     @click.stop="editModalOpen('employee', employee)">
@@ -95,7 +98,6 @@
             :record = "record"
             @close = "editModalClose"
             type="employee"
-            @submit="updateEmployee"
         />
     </div>
 </template>
@@ -112,10 +114,7 @@ export default {
         EditModal,
     },
     props: {
-        employees: {
-            type: Object,
-            required: true,
-        },
+        employees: Object,
     },
     data() {
         return {

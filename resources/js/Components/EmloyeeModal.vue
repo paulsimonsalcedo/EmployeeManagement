@@ -105,11 +105,21 @@
                     onSuccess: () => {
                         // this.$emit('employee-saved');
                         this.closeModal();
+                        this.resetForm();
                     },
                     onError: (errors) =>{
                         console.log(errors);
                     }
                 });
+            },
+            resetForm(){
+                this.form = {
+                    name: '',
+                    email: '',
+                    phone: '',
+                    hire_date: '',
+                    salary: ''
+                }
             }
         },
     }

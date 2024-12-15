@@ -12,7 +12,7 @@
         <thead class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
           <tr>
             <!-- <th class="py-3 px-6 text-left">#</th> -->
-            <th class="py-3 px-6 text-left">Employee Name</th>
+            <!-- <th class="py-3 px-6 text-left">Employee Name</th> -->
             <th class="py-3 px-6 text-left">Department</th>
             <th class="py-3 px-6 text-left">Role</th>
             <th class="py-3 px-6 text-center">Performance Notes</th>
@@ -22,7 +22,7 @@
         <tbody class="text-gray-600 text-sm font-light">
           <tr v-for="serviceRecord in serviceRecords " :key="serviceRecord.id" class="border-b border-gray-200 hover:bg-gray-100">
             <!-- <td class="py-3 px-6 text-left">{{ index + 1 }}</td> -->
-            <td class="py-3 px-6 text-left">{{ serviceRecord.employee.name }}</td>
+             <!-- <td class="py-3 px-6 text-left">{{ serviceRecord.employee.name }}</td> -->
             <td class="py-3 px-6 text-left">{{ serviceRecord.department.name }}</td>
             <td class="py-3 px-6 text-left">{{ serviceRecord.role }}</td>
             <td class="py-3 px-6 text-left">{{ serviceRecord.performance_notes }}</td>

@@ -38,17 +38,6 @@ class ServiceRecordController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(SaveServiceRecordRequest $request, $id)
     {
         if (!is_numeric($id)) {
@@ -57,40 +46,35 @@ class ServiceRecordController extends Controller
     
         $validated = $request->validated();
     
-        $this->serviceRecord->saveService($validated, (int)$id);
+        ServiceRecord::create([
+            'employee_id' => (int)$id,
+            'department_id' => $validated['department_id'],
+            'role' => $validated['role'],
+            'performance_notes' => $validated['performance_notes'],
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(ServiceRecord $serviceRecord)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(ServiceRecord $serviceRecord)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateServiceRecordRequest $request, $id)
     {
         $validated = $request->validated();
-        $this->serviceRecord->updateService($validated, $id);
+        $update = ServiceRecord::find($id);
+    
+        if ($update) {
+            $update->update([
+                'employee_id' => $validated['employee_id'],
+                'department_id' => $validated['department_id'],
+                'role' => $validated['role'],
+                'performance_notes' => $validated['performance_notes'],
+            ]);
+        }
+    
+        return false;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
-        $this->serviceRecord->deleteService($id);
+        $delete = ServiceRecord::findOrFail($id);
+        $delete->delete();
     }
 
     public function allRecord()
