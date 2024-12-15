@@ -13,16 +13,7 @@ use Inertia\Inertia;
 
 class ServiceRecordController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public $serviceRecord;
-
-    public function __construct(ServiceRecordService $serviceRecord)
-    {
-        $this->serviceRecord = $serviceRecord;
-    }
-
+ 
     public function index(Request $request)
     {
         $serviceRecords = ServiceRecord::with(['employee', 'department'])

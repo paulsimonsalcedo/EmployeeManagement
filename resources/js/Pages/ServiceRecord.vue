@@ -96,7 +96,7 @@
       },
       methods:{
           backToHome(){
-              Inertia.visit('/welcome');
+              Inertia.visit('/dashboard');
           },
           addServiceRecord(){
               this.isModalOpen = true;

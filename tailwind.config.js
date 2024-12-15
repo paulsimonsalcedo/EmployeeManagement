@@ -11,6 +11,7 @@ export default {
         './resources/views/**/*.blade.php',
         './resources/js/**/*.vue',
     ],
+
     theme: {
         extend: {
             fontFamily: {
@@ -18,5 +19,6 @@ export default {
             },
         },
     },
+
     plugins: [forms, typography],
 };
