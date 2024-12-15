@@ -30,7 +30,7 @@ class EmployeeController extends Controller
                 return $employee;
             });
     
-        return Inertia::render('Welcome', [
+        return Inertia::render('Dashboard', [
             'employees' => $employees,
             'filters' => ['search' => $search],
         ]);

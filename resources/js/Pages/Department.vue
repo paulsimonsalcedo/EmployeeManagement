@@ -99,7 +99,7 @@
             this.isModalOpen = false; //close Add Department
         },
         backToHome(){
-            Inertia.visit('/welcome');
+            Inertia.visit('/dashboard');
         },
         fetchDepartments() {
             // Inertia.get('/department', {}, { preserveState: true });
