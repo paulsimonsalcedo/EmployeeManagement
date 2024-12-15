@@ -10,17 +10,7 @@ use Inertia\Inertia;
 
 class DepartmentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
 
-    public $departmentService;
-
-    public function __construct(DepartmentService $departmentService)
-    {
-        $this->departmentService = $departmentService;
-    }
-    
     public function index()
     {
         $departments = Department::all();
@@ -28,53 +18,32 @@ class DepartmentController extends Controller
         return Inertia::render('Department', ['departments' => $departments]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(SaveDepartmentRequest $request)
     {
         $data = $request->only('name','description');
 
-        $this->departmentService->saveDepartment($data);
+        if(isset($data)){
+            Department::create($data);
+        }
+
+        return false;
   
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Department $department)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(SaveDepartmentRequest $request, $id)
     {
         $validated = $request->validated();
-        $this->departmentService->updateDepartment($id,$validated);
+
+        $department = Department::findOrFail($id);
+
+        if($department){
+            $department->update($validated);
+        }
+
+        return false;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(Department $department)
     {
         $department->delete();

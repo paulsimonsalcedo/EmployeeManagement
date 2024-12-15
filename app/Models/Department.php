@@ -8,8 +8,8 @@ class Department extends Model
 {
     protected $fillable = ['name','description'];
 
-    // public function serviceRecords()
-    // {
-    //     return $this->hasOne(ServiceRecord::class);
-    // }
+    public function serviceRecords()
+    {
+        return $this->hasOne(ServiceRecord::class);
+    }
 }

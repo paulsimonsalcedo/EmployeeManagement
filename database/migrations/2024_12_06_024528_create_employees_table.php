@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('phone');
             $table->date('hire_date');
             $table->bigInteger('salary');
+            $table->timestamps();
         });
     }
 

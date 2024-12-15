@@ -81,13 +81,13 @@
     },
     methods: {
       closeModal() {
-        this.resetForm(); // Call resetForm from the parent component
+        this.resetForm(); 
         this.$emit("close");
       },
       submit() {
-        // Ensure all necessary form fields are sent via the POST request.
+
         Inertia.post(`/save-serviceRecords/${this.employeeID}`, {
-            employee_id: this.form.employee_id, // Should already match employeeID.
+            employee_id: this.form.employee_id, 
             department_id: this.form.department_id,
             role: this.form.role,
             performance_notes: this.form.performance_notes,
