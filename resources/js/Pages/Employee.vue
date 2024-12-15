@@ -139,7 +139,7 @@ export default {
             this.isModalOpen = false; // Close Add Employee
         },
         fetchEmployees() {
-            Inertia.get('/welcome', this.filters, { preserveState: true });
+            Inertia.get('/dashboard', this.filters, { preserveState: true });
         },
         searchEmployees() {
             this.fetchEmployees(); // Automatically updates the list as the user types

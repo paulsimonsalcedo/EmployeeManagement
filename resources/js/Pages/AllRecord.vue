@@ -44,7 +44,7 @@ import {Inertia} from '@inertiajs/inertia';
         },
         methods:{
             backToHome(){
-                Inertia.visit('/welcome');
+                Inertia.visit('/dashboard');
             }
         }
 
